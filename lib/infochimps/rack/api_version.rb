@@ -9,7 +9,7 @@ module Infochimps
         @app = app
         @version = version
         @path = options[:path] || '/version'
-        @version_header = { "X-#{options[:api] || app.class.to_s.demodulize}-Version" => version }
+        @version_header = { "X-#{options[:api] || 'Api'}-Version" => version }
       end
 
       def call env

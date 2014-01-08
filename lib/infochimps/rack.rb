@@ -1,6 +1,5 @@
 require 'goliath'
 require 'gorillib/metaprogramming/concern'
-require 'gorillib/string/inflections'
 require 'multi_json'
 
 require 'infochimps/rack/api_version'
