@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem 'rspec'
-  gem 'simplecov'
+  gem 'rake',      '>= 0.8.7'
+  gem 'rspec',     '~> 2'
+  gem 'simplecov', '~> 0.8'
 end
