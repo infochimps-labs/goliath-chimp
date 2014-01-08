@@ -13,9 +13,7 @@ module Infochimps
 
       def call env
         endpoint = env['routes'][route_key] rescue nil
-        name, handler = handler_map.detect do |name, handler|
-          name === endpoint
-        end
+        name, handler = handler_map.detect{ |name, handler| name === endpoint }
         if handler
           env['handler'] = handler          
           @app.call env
