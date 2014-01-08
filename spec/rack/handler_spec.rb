@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe Infochimps::Rack::Handler do
   subject{ Object.new.extend described_class }
-
-  context '#valid_response' do
-    it 'returns a templated response' do
-      subject.valid_response('OK').should eq([200, {}, 'OK'])
-    end
-  end
   
   context '#invalid_operation' do
     before do
@@ -17,13 +11,16 @@ describe Infochimps::Rack::Handler do
 
     it 'returns a validation error listing available operations' do
       message = 'Operation not allowed for Object. Valid operations are ["create", "retrieve"]'
-      subject.invalid_operation(:update).should eq([405, {}, { error: message }])
+      subject.invalid_operation(:update).should             be_a(Goliath::Validation::MethodNotAllowedError)
+      subject.invalid_operation(:update).message.should     eq(message)
+      subject.invalid_operation(:update).status_code.should eq('405')
     end
   end
 
   context '#method_missing', 'when crud method' do
-    it 'returns an http error' do
-      subject.update.should eq([405, {}, { error: 'Operation not allowed for Object. Valid operations are []' }])
+    it 'raises a goliath http error' do
+      message = 'Operation not allowed for Object. Valid operations are []'
+      expect{ subject.update }.to raise_error(Goliath::Validation::MethodNotAllowedError, message)
     end
   end
 
