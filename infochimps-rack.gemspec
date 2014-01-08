@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split($/)
   s.executables   = s.files.grep(/^bin/){ |f| File.basename(f) }
-  s.test_files    = s.files.grep(/spec/)
+  s.test_files    = s.files.grep(/^spec/)
   s.require_paths = ['lib']
 
   s.add_dependency('goliath',    '~> 1')
