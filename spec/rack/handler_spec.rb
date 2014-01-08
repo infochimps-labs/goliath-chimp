@@ -10,7 +10,7 @@ describe Infochimps::Rack::Handler do
     end
 
     it 'returns a validation error listing available operations' do
-      message = 'Operation not allowed for Object. Valid operations are ["create", "retrieve"]'
+      message = 'Operation update not allowed for Object. Valid operations are ["create", "retrieve"]'
       subject.invalid_operation(:update).should             be_a(Goliath::Validation::MethodNotAllowedError)
       subject.invalid_operation(:update).message.should     eq(message)
       subject.invalid_operation(:update).status_code.should eq('405')
@@ -19,7 +19,7 @@ describe Infochimps::Rack::Handler do
 
   context '#method_missing', 'when crud method' do
     it 'raises a goliath http error' do
-      message = 'Operation not allowed for Object. Valid operations are []'
+      message = 'Operation update not allowed for Object. Valid operations are []'
       expect{ subject.update }.to raise_error(Goliath::Validation::MethodNotAllowedError, message)
     end
   end

@@ -13,7 +13,7 @@ module Infochimps
       end
 
       def invalid_operation name
-        message = "Operation not allowed for #{self.class}. Valid operations are #{valid_operations}"
+        message = "Operation #{name} not allowed for #{self.class}. Valid operations are #{valid_operations}"
         Goliath::Validation::MethodNotAllowedError.new message
       end
 
