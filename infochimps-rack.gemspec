@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(/spec/)
   s.require_paths = ['lib']
 
-  s.add_dependency('goliath', '~> 1')
+  s.add_dependency('goliath',    '~> 1')
+  s.add_dependency('multi_json', '~> 1.8')
 end
