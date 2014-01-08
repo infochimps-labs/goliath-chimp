@@ -5,7 +5,7 @@ describe Infochimps::Rack::ApiVersion do
   let(:app)    { double :app }
   let(:env)    { Hash.new }
   let(:version){ '1.2' }
-  subject      { described_class.new(app, api: 'Jumanji', version: version) }
+  subject      { described_class.new(app, version, api: 'Jumanji') }
 
   context '#call', 'when /version' do
     it 'does not call the app' do

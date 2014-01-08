@@ -5,10 +5,10 @@ module Infochimps
       
       attr_reader :path, :version, :version_header
 
-      def initialize(app, options = {})
+      def initialize(app, version, options = {})
         @app = app
+        @version = version
         @path = options[:path] || '/version'
-        @version = options[:version]
         @version_header = { "X-#{options[:api] || app.class.to_s.demodulize}-Version" => version }
       end
 
