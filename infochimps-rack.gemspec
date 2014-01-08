@@ -23,5 +23,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency('goliath',    '~> 1')
+  s.add_dependency('gorillib',   '~> 0.5')
   s.add_dependency('multi_json', '~> 1.8')
 end
