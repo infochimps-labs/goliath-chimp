@@ -4,3 +4,5 @@ if ENV['RACK_COVERAGE']
 end
 
 require 'infochimps/rack'
+
+Goliath.run_app_on_exit = false
