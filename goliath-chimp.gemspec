@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email         = ['travis@infochimps.com']
   s.homepage      = 'https://github.com/infochimps-labs/goliath-chimp'
   s.licenses      = ['Apache 2.0']
-  s.summary       = 'Collection of Goliath/Rack utility classes'
+  s.summary       = 'Collection of Chimp-inspired Goliath/Rack utility classes'
   s.description   = <<-DESC.gsub(/^ {4}/, '').chomp
     Goliath Chimp
 
