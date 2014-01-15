@@ -1,5 +1,7 @@
 # Goliath::Chimp
 
+[![Build Status](https://travis-ci.org/infochimps-labs/goliath-chimp.png?branch=master)](https://travis-ci.org/infochimps-labs/goliath-chimp)
+
 TODO: Write a gem description
 
 ## Installation
