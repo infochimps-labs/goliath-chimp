@@ -1,5 +1,32 @@
 module Goliath::Chimp
   module Handler
+    #
+    # This handler mixin is designed to handle ONLY the
+    # designated crud methods. Define your specific handler's
+    # behavior and this mixin will take care of the validation 
+    # and response behavior of any missing methods.
+    #
+    # Example:
+    #
+    # class SimpleHandler
+    #   include Goliath::Chimp::Handler
+    #
+    #   def create doc
+    #     # insert a record into the database
+    #   end
+    #
+    #   def retrieve id
+    #     # retrieve a record from the database
+    #   end
+    # end
+    #
+    # begin
+    #   SimpleHandler.new.delete 'id'
+    #G rescue Goliath::Validation::Error => e
+    #   [e.status_code, {}, { error: e.message }
+    # end
+    # #=> [405, {}, {:error=>"Operation delete not allowed for SimpleHandler. Valid operations are ["create", "retrieve"]"}]
+    #
     include Gorillib::Concern
     include Goliath::Rack::Validator
 
