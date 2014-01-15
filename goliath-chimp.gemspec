@@ -1,20 +1,21 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'infochimps/rack/version'
+require 'goliath/chimp/version'
 
 Gem::Specification.new do |s|
-  s.name          = 'infochimps-rack'
-  s.version       = Infochimps::Rack::VERSION
+  s.name          = 'goliath-chimp'
+  s.version       = Goliath::Chimp::VERSION
   s.authors       = ['Travis Dempsey']
   s.email         = ['travis@infochimps.com']
-  s.homepage      = 'https://github.com/infochimps-labs/infochimps-rack'
+  s.homepage      = 'https://github.com/infochimps-labs/goliath-chimp'
   s.licenses      = ['Apache 2.0']
   s.summary       = 'Collection of Goliath/Rack utility classes'
   s.description   = <<-DESC.gsub(/^ {4}/, '').chomp
-    Infochimps' Rack
+    Goliath Chimp
 
-    A collection of reusable Rack classes for use in Goliath Apis
+    A collection of reusable Rack classes and other goodies
+    for use in Goliath APIs.
   DESC
 
   s.files         = `git ls-files`.split($/)
