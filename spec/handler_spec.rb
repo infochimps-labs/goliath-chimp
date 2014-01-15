@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Goliath::Chimp::Rack::Handler do
+describe Goliath::Chimp::Handler do
   subject{ Object.new.extend described_class }
   
   context '#invalid_operation' do

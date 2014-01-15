@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Goliath::Chimp::Validation::RequiredRoutes do
+describe Goliath::Chimp::Rack::Validation::RequiredRoutes do
 
   let(:app)     { double :app }
   let(:env)     { Hash.new.merge routes }
