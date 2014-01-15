@@ -3,6 +3,6 @@ if ENV['RACK_COVERAGE']
   SimpleCov.start
 end
 
-require 'infochimps/rack'
+require 'goliath/chimp'
 
 Goliath.run_app_on_exit = false
