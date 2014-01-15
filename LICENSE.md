@@ -1,6 +1,6 @@
-# License for Infochimps-Rack
+# License for Goliath-Chimp
 
-Infochimps-Rack is __Copyright (c) 2014 Infochimps, Inc__
+Goliath-Chimp is __Copyright (c) 2014 Infochimps, Inc__
 
 This code is licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
