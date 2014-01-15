@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Infochimps::Rack::Validation::RouteHandler do
+describe Goliath::Chimp::Rack::Validation::RouteHandler do
 
   let(:app)     { double :app }
   let(:env)     { Hash.new.merge routes }

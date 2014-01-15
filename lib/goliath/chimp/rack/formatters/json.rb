@@ -1,4 +1,4 @@
-module Infochimps
+module Goliath::Chimp
   module Rack
     module Formatters
       class JSON

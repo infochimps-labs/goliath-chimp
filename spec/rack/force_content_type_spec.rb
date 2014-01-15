@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Infochimps::Rack::ForceContentType do
+describe Goliath::Chimp::Rack::ForceContentType do
   
   let(:app){ double :app }
   let(:env){ Hash.new    }

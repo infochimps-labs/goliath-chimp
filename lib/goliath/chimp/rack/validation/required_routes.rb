@@ -1,4 +1,4 @@
-module Infochimps
+module Goliath::Chimp
   module Rack::Validation
     class RequiredRoutes
       include Goliath::Rack::Validator

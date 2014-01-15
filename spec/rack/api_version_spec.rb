@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Infochimps::Rack::ApiVersion do
+describe Goliath::Chimp::Rack::ApiVersion do
   
   let(:app)    { double :app }
   let(:env)    { Hash.new }

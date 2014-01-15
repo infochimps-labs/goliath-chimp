@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Infochimps::Rack::Formatters::JSON do
+describe Goliath::Chimp::Rack::Formatters::JSON do
 
   let(:app)    { double :app }
   let(:env)    { { 'params' => {} } }

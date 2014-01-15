@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Infochimps::Rack::ControlMethods do
+describe Goliath::Chimp::Rack::ControlMethods do
 
   let(:app)    { double :app }
   let(:env)    { Hash.new }

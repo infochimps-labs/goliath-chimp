@@ -1,4 +1,4 @@
-module Infochimps
+module Goliath::Chimp
   module Rack
     class ApiVersion
       include Goliath::Rack::AsyncMiddleware

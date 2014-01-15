@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Infochimps::Rack::Validation::Routes do
+describe Goluath::Chimp::Rack::Validation::Routes do
   
   let(:app)  { double :app }
   let(:env)  { Hash.new }
