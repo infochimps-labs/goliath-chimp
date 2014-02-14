@@ -3,7 +3,7 @@ module Goliath::Chimp
     class ServerMetrics
       include Goliath::Rack::AsyncMiddleware
 
-      att_reader :path, :env_key
+      attr_reader :path, :env_key
 
       def initialize(app, options = {})
         @app     = app
