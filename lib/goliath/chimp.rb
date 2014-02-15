@@ -3,6 +3,9 @@ require 'gorillib/metaprogramming/concern'
 require 'multi_json'
 
 require 'goliath/chimp/handler'
+
+require 'goliath/chimp/plugins/activity_monitor'
+
 require 'goliath/chimp/rack/api_version'
 require 'goliath/chimp/rack/control_methods'
 require 'goliath/chimp/rack/force_content_type'

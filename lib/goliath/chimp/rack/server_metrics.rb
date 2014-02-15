@@ -3,12 +3,13 @@ module Goliath::Chimp
     class ServerMetrics
       include Goliath::Rack::AsyncMiddleware
 
-      attr_reader :path, :env_key
+      attr_reader :path, :env_key, :default
 
       def initialize(app, options = {})
         @app     = app
-        @path    = options[:path] ||= '/metrics'
+        @path    = options[:path]    || '/metrics'
         @env_key = options[:env_key]
+        @default = options[:default] || '/*'
       end
 
       def call env
@@ -37,7 +38,7 @@ module Goliath::Chimp
       def post_process(env, status, headers, body)
         base_metrics = { count: 0, total_millis: 0 }
         env.status[:requests] ||= Hash.new{ |h, k| h[k] = Hash.new{ |h, k| h[k] = base_metrics } }
-        request_key    = extract_from_env(env, env_key)
+        request_key    = extract_from_env(env, env_key) || default
         request_method = env['REQUEST_METHOD'].downcase.to_sym
         metrics = env.status[:requests][request_key][request_method]
         metrics[:count] += 1
