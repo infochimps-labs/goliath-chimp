@@ -2,6 +2,7 @@ module Goliath::Chimp
   module Rack
     class ServerMetrics
       include Goliath::Rack::AsyncMiddleware
+      include EnvExtractor
 
       attr_reader :path, :env_key, :default
 
@@ -14,31 +15,16 @@ module Goliath::Chimp
 
       def call env
         if env['PATH_INFO'] == path
-          [ 200, {}, env.status ]
+          [ 200, {}, env['status'] ]
         else
-          super env
-        end
-      end
-
-      def extract_from_env(env, key)
-        return nil unless env.is_a? Hash
-        case key
-        when String, Symbol
-          env[key]
-        when Array
-          slice = env[key.shift]
-          key.empty? ? slice : extract_from_env(slice, key)
-        when Hash
-          extract_from_env(env, key.to_a.flatten)
-        else
-          nil
+          super
         end
       end
 
       def post_process(env, status, headers, body)
         base_metrics = { count: 0, total_millis: 0 }
-        env.status[:requests] ||= Hash.new{ |h, k| h[k] = Hash.new{ |h, k| h[k] = base_metrics } }
-        request_key    = extract_from_env(env, env_key) || default
+        env['status'][:requests] ||= Hash.new{ |h, k| h[k] = Hash.new{ |h, k| h[k] = base_metrics } }
+        request_key    = extract_from_env(env, env_key, default)
         request_method = env['REQUEST_METHOD'].downcase.to_sym
         metrics = env.status[:requests][request_key][request_method]
         metrics[:count] += 1
