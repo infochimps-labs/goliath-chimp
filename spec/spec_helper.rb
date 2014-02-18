@@ -1,3 +1,6 @@
+require 'logger'
+require 'stringio'
+
 if ENV['RACK_COVERAGE']
   require 'simplecov'
   SimpleCov.start
