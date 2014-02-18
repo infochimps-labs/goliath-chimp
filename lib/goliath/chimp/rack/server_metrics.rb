@@ -26,7 +26,7 @@ module Goliath::Chimp
         env['status'][:requests] ||= Hash.new{ |h, k| h[k] = Hash.new{ |h, k| h[k] = base_metrics } }
         request_key    = extract_from_env(env, env_key, default)
         request_method = env['REQUEST_METHOD'].downcase.to_sym
-        metrics = env.status[:requests][request_key][request_method]
+        metrics = env['status'][:requests][request_key][request_method]
         metrics[:count] += 1
         elapsed_millis = ((Time.now.to_f - env[:start_time]) * 1000).round
         metrics[:total_millis] += elapsed_millis
