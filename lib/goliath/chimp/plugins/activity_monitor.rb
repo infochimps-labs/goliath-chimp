@@ -2,6 +2,8 @@ module Goliath::Chimp
   module Plugin
     class ActivityMonitor
 
+      attr_reader :logger, :status, :previous
+
       def initialize(address, port, config, status, logger)
         @status   = status
         @logger   = logger
@@ -12,23 +14,23 @@ module Goliath::Chimp
         interval = options[:window] || 60
         EM::Synchrony.add_periodic_timer(interval) do
           current = latency
-          @status[:reactor] = {
+          status[:reactor] = {
             latency: current,
             ratio:   (current / interval).round(6),
           }
-          report @status
+          report status
         end
       end
       
       def latency
         snapshot = Time.now.to_f
-        laten = snapshot - @previous
+        laten = snapshot - previous
         @previous = snapshot
         laten
       end
       
       def report metric
-        @logger.debug metric
+        logger.debug metric
       end
     end
   end
