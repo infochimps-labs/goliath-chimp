@@ -62,5 +62,13 @@ describe Goliath::Chimp::Rack::EnvExtractor do
         subject.extract_from_env(env, { bar: :foo }).should be_nil
       end
     end
+
+    context 'other' do
+      let(:env){ Hash.new }
+
+      it 'returns the default if given an invalid key' do
+        subject.extract_from_env(env, 123, 'default').should eq('default')
+      end
+    end
   end
 end
