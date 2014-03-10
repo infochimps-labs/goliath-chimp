@@ -12,7 +12,7 @@ module Goliath::Chimp
         include Goliath::Rack::AsyncMiddleware
 
         def post_process(env, status, headers, body)
-          pretty = !!env['params']['pretty'] rescue false
+          pretty = !!env['params'].delete('pretty') rescue false
           if json_response? headers
             body = MultiJson.dump(body, pretty: pretty)
           end
